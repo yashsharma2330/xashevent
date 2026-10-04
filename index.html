@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="" content="" />
+    <title>XASHEVENT — Luxury Event Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .theme-toggle-label .sun-icon,
+      #theme-toggle:checked ~ .site-shell .theme-toggle-label .moon-icon {
+        display: none;
+      }
+
+      #theme-toggle:checked ~ .site-shell .theme-toggle-label .sun-icon {
+        display: inline;
+      }
+
+      #theme-toggle:focus-visible ~ .site-shell .theme-toggle-label {
+        outline: 2px solid #cdb070;
+        outline-offset: 3px;
+      }
+
+      #theme-toggle:checked ~ .site-shell {
+        background-color: #f7f5ef;
+        color: #24231f;
+        transition:
+          background-color 250ms ease,
+          color 250ms ease;
+      }
+
+      #theme-toggle:checked ~ .site-shell #home {
+        background-image:
+          radial-gradient(
+            circle at 25% 25%,
+            rgba(185, 154, 91, 0.12),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 90% 90%,
+            rgba(124, 58, 237, 0.035),
+            transparent 30%
+          );
+      }
+
+      #theme-toggle:checked ~ .site-shell [class*="bg-[#0b0b0b]"] {
+        background-color: #eeece5;
+      }
+
+      #theme-toggle:checked ~ .site-shell [class*="bg-white/"] {
+        background-color: rgba(36, 35, 31, 0.045);
+      }
+
+      #theme-toggle:checked ~ .site-shell [class*="text-white/"] {
+        color: #55534d;
+      }
+
+      #theme-toggle:checked ~ .site-shell .hero-event-title {
+        color: #24231f;
+      }
+
+      #theme-toggle:checked ~ .site-shell [class*="border-white"] {
+        border-color: rgba(36, 35, 31, 0.16);
+      }
+
+      #theme-toggle:checked
+        ~ .site-shell
+        [class*="bg-white/"][class*="text-white"] {
+        color: #24231f;
+      }
+
+      #theme-toggle:checked
+        ~ .site-shell
+        [class*="bg-black"][class*="text-white"] {
+        color: #fff;
+      }
+
+      #theme-toggle:checked ~ .site-shell [class*="text-transparent"] {
+        background-image: linear-gradient(90deg, #9a7130, #c09a54, #9a7130);
+      }
+
+      #theme-toggle:checked ~ .site-shell input,
+      #theme-toggle:checked ~ .site-shell textarea,
+      #theme-toggle:checked ~ .site-shell select {
+        color: #24231f;
+      }
+
+      #theme-toggle:checked ~ .site-shell input::placeholder,
+      #theme-toggle:checked ~ .site-shell textarea::placeholder {
+        color: #77746c;
+      }
+
+      #theme-toggle:checked ~ .site-shell select {
+        background-color: #eeece5;
+      }
+
+      #theme-toggle:checked ~ .site-shell .hero-event-title,
+      #theme-toggle:checked ~ .site-shell .hero-event-p,
+      #theme-toggle:checked ~ .site-shell .event-1 {
+        color: white;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#080808] text-[#f5f1e8] antialiased [font-family:Inter,sans-serif] field-sizing: fixed;"
+  >
+    <input
+      id="theme-toggle"
+      type="checkbox"
+      class="sr-only"
+      aria-label="Light theme"
+    />
+    <div class="site-shell min-h-screen">
+      <header class="fixed inset-x-0 top-0 z-50">
+        <nav class="mx-auto max-w-7xl px-6 py-5">
+          <div
+            class="flex items-center justify-between rounded-full border border-white/10 bg-white/[0.045] px-5 py-3 backdrop-blur-xl"
+          >
+            <a href="#home" class="text-xl font-semibold tracking-[0.25em]"
+              >XASH<span
+                class="bg-gradient-to-r from-[#f6e6bd] via-[#c8a96b] to-[#f7e7bf] bg-clip-text text-transparent"
+                >EVENT</span
+              ></a
+            >
+            <div
+              class="hidden items-center gap-8 text-sm text-white/70 md:flex"
+            >
+              <a href="#home" class="transition hover:text-white">Home</a>
+              <a href="#events" class="transition hover:text-white">Events</a>
+              <a href="#services" class="transition hover:text-white"
+                >Services</a
+              >
+              <a href="#packages" class="transition hover:text-white"
+                >Packages</a
+              >
+              <a href="#about" class="transition hover:text-white">About</a>
+            </div>
+            <a
+              href="#contact"
+              class="hidden rounded-full bg-[#e7d3a5] px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-white sm:inline-flex"
+              >Plan Your Event</a
+            >
+            <label
+              for="theme-toggle"
+              class="theme-toggle-label inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/15 text-lg transition hover:bg-white/10"
+              title="Toggle light and dark theme"
+            >
+              <span class="moon-icon" aria-hidden="true">☾</span>
+              <span class="sun-icon" aria-hidden="true">☼</span>
+            </label>
+            <a
+              href="#contact"
+              aria-label="Contact XASHEVENT"
+              class="text-xl md:hidden"
+              >☰</a
+            >
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <section
+          id="home"
+          class="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_25%_25%,rgba(185,154,91,.12),transparent_30%),radial-gradient(circle_at_90%_90%,rgba(124,58,237,.06),transparent_30%)] pt-28"
+        >
+          <div
+            class="mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl items-center px-6 py-20"
+          >
+            <div class="grid w-full items-center gap-12 lg:grid-cols-2">
+              <div class="relative z-10">
+                <p class="mb-7 text-xs tracking-[0.4em] text-[#d2b679]">
+                  CREATE • CELEBRATE • REMEMBER
+                </p>
+                <h1
+                  class="[font-family:'Cormorant_Garamond',serif] text-6xl font-medium leading-[.85] sm:text-7xl lg:text-[92px]"
+                >
+                  Your Perfect<br /><span
+                    class="bg-gradient-to-r from-[#f6e6bd] via-[#c8a96b] to-[#f7e7bf] bg-clip-text italic text-transparent"
+                    >Event.</span
+                  >
+                </h1>
+                <p
+                  class="mt-8 max-w-xl text-base leading-8 text-white/55 sm:text-lg"
+                >
+                  We create unforgettable celebrations, from intimate ceremonies
+                  to extraordinary weddings, corporate events, and private
+                  occasions.
+                </p>
+                <div class="mt-10 flex flex-wrap gap-4">
+                  <a
+                    href="#contact"
+                    class="rounded-full bg-[#e5d0a0] px-7 py-3.5 text-sm font-semibold text-black transition hover:bg-white"
+                    >Start Planning</a
+                  >
+                  <a
+                    href="#events"
+                    class="rounded-full border border-white/15 px-7 py-3.5 text-sm transition hover:bg-white/5"
+                    >Explore Events</a
+                  >
+                </div>
+                <div class="mt-14 flex gap-10">
+                  <div>
+                    <p class="text-2xl font-semibold">500+</p>
+                    <p class="mt-1 text-xs text-white/40">Events</p>
+                  </div>
+                  <div class="w-px bg-white/10"></div>
+                  <div>
+                    <p class="text-2xl font-semibold">150+</p>
+                    <p class="mt-1 text-xs text-white/40">Weddings</p>
+                  </div>
+                  <div class="w-px bg-white/10"></div>
+                  <div>
+                    <p class="text-2xl font-semibold">98%</p>
+                    <p class="mt-1 text-xs text-white/40">Satisfaction</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="relative mx-auto h-[600px] w-full max-w-xl [perspective:1200px]"
+              >
+                <div
+                  class="absolute inset-10 rounded-full border border-[#c9a968]/10"
+                ></div>
+                <div
+                  class="absolute inset-20 rounded-full border border-[#c9a968]/10"
+                ></div>
+                <div
+                  class="absolute inset-28 rounded-full bg-[#c9a968]/5 blur-3xl"
+                ></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div
+                    class="relative transition duration-500 hover:-translate-y-3 hover:rotate-y-2"
+                  >
+                    <div
+                      class="absolute -inset-10 rounded-full bg-[#c6a45d]/10 blur-3xl"
+                    ></div>
+                    <img
+                      src="./assets/hero.avif"
+                      alt="Elegant Indian bride"
+                      class="relative h-[500px] w-[340px] rounded-[180px] border border-white/10 object-cover object-top shadow-2xl sm:w-[400px]"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="absolute right-0 top-24 w-48 rotate-3 rounded-2xl border border-white/10 bg-white/[0.045] p-5 shadow-2xl backdrop-blur-xl sm:right-4"
+                >
+                  <div class="flex items-center justify-between">
+                    <span class="event-1 text-xs text-white/50">EVENT</span
+                    ><span class="text-[#d5b877]">✦</span>
+                  </div>
+                  <p
+                    class="hero-event-title mt-3 [font-family:'Cormorant_Garamond',serif] text-2xl"
+                  >
+                    Royal<br />Wedding
+                  </p>
+                  <p class="hero-event-p mt-3 text-[10px] text-white/40">
+                    Jaipur, Rajasthan
+                  </p>
+                </div>
+                <div
+                  class="absolute bottom-24 left-4 flex h-20 w-20 rotate-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.045] backdrop-blur-xl sm:left-10"
+                >
+                  <div
+                    class="h-10 w-10 rounded-full border-4 border-[#d6b66d]"
+                  ></div>
+                </div>
+                <div
+                  class="absolute left-12 top-40 h-8 w-8 rounded-full bg-gradient-to-br from-[#f2dfb1] to-[#81652f] shadow-xl"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="events" class="bg-[#0b0b0b] py-28">
+          <div class="mx-auto max-w-7xl px-6">
+            <div class="mb-14 max-w-2xl">
+              <p class="text-xs tracking-[0.35em] text-[#cdb070]">
+                WHAT WE CREATE
+              </p>
+              <h2
+                class="mt-4 [font-family:'Cormorant_Garamond',serif] text-5xl sm:text-6xl"
+              >
+                Events Designed
+                <span class="italic text-white/50">Differently.</span>
+              </h2>
+            </div>
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <article
+                class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.045] transition duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <img
+                  src="./assets/2.avif"
+                  alt="Wedding event"
+                  class="h-72 w-full object-cover transition duration-700 hover:scale-105"
+                />
+                <div class="p-7">
+                  <p class="text-xs text-[#c9a968]">01</p>
+                  <h3
+                    class="mt-2 [font-family:'Cormorant_Garamond',serif] text-3xl"
+                  >
+                    Weddings
+                  </h3>
+                  <p class="mt-3 text-sm leading-6 text-white/40">
+                    Timeless ceremonies designed around your story, style and
+                    celebration.
+                  </p>
+                  <a
+                    href="#contact"
+                    class="mt-5 inline-block text-sm text-white/70"
+                    >Explore →</a
+                  >
+                </div>
+              </article>
+              <article
+                class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.045] transition duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <img
+                  src="./assets/3.avif"
+                  alt="Engagement event"
+                  class="h-72 w-full object-cover transition duration-700 hover:scale-105"
+                />
+                <div class="p-7">
+                  <p class="text-xs text-[#c9a968]">02</p>
+                  <h3
+                    class="mt-2 [font-family:'Cormorant_Garamond',serif] text-3xl"
+                  >
+                    Engagements
+                  </h3>
+                  <p class="mt-3 text-sm leading-6 text-white/40">
+                    Elegant celebrations created for the beginning of something
+                    beautiful.
+                  </p>
+                  <a
+                    href="#contact"
+                    class="mt-5 inline-block text-sm text-white/70"
+                    >Explore →</a
+                  >
+                </div>
+              </article>
+              <article
+                class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.045] transition duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <img
+                  src="./assets/4.avif"
+                  alt="Birthday celebration"
+                  class="h-72 w-full object-cover transition duration-700 hover:scale-105"
+                />
+                <div class="p-7">
+                  <p class="text-xs text-[#c9a968]">03</p>
+                  <h3
+                    class="mt-2 [font-family:'Cormorant_Garamond',serif] text-3xl"
+                  >
+                    Birthdays
+                  </h3>
+                  <p class="mt-3 text-sm leading-6 text-white/40">
+                    Memorable birthday experiences filled with personality and
+                    energy.
+                  </p>
+                  <a
+                    href="#contact"
+                    class="mt-5 inline-block text-sm text-white/70"
+                    >Explore →</a
+                  >
+                </div>
+              </article>
+              <article
+                class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.045] transition duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <img
+                  src="./assets/5.avif"
+                  alt="Corporate event"
+                  class="h-72 w-full object-cover transition duration-700 hover:scale-105"
+                />
+                <div class="p-7">
+                  <p class="text-xs text-[#c9a968]">04</p>
+                  <h3
+                    class="mt-2 [font-family:'Cormorant_Garamond',serif] text-3xl"
+                  >
+                    Corporate
+                  </h3>
+                  <p class="mt-3 text-sm leading-6 text-white/40">
+                    Professional events designed to leave a lasting impression.
+                  </p>
+                  <a
+                    href="#contact"
+                    class="mt-5 inline-block text-sm text-white/70"
+                    >Explore →</a
+                  >
+                </div>
+              </article>
+              <article
+                class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.045] transition duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <img
+                  src="./assets/6.avif"
+                  alt="Private party"
+                  class="h-72 w-full object-cover transition duration-700 hover:scale-105"
+                />
+                <div class="p-7">
+                  <p class="text-xs text-[#c9a968]">05</p>
+                  <h3
+                    class="mt-2 [font-family:'Cormorant_Garamond',serif] text-3xl"
+                  >
+                    Private Parties
+                  </h3>
+                  <p class="mt-3 text-sm leading-6 text-white/40">
+                    Intimate celebrations designed exclusively for you and your
+                    guests.
+                  </p>
+                  <a
+                    href="#contact"
+                    class="mt-5 inline-block text-sm text-white/70"
+                    >Explore →</a
+                  >
+                </div>
+              </article>
+              <article
+                class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.045] transition duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <img
+                  src="./assets/7.avif"
+                  alt="Anniversary event"
+                  class="h-72 w-full object-cover transition duration-700 hover:scale-105"
+                />
+                <div class="p-7">
+                  <p class="text-xs text-[#c9a968]">06</p>
+                  <h3
+                    class="mt-2 [font-family:'Cormorant_Garamond',serif] text-3xl"
+                  >
+                    Anniversaries
+                  </h3>
+                  <p class="mt-3 text-sm leading-6 text-white/40">
+                    Romantic experiences crafted to celebrate every chapter
+                    together.
+                  </p>
+                  <a
+                    href="#contact"
+                    class="mt-5 inline-block text-sm text-white/70"
+                    >Explore →</a
+                  >
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" class="py-28">
+          <div class="mx-auto max-w-7xl px-6">
+            <div class="mx-auto max-w-2xl text-center">
+              <p class="text-xs tracking-[0.35em] text-[#cdb070]">
+                OUR EXPERTISE
+              </p>
+              <h2
+                class="mt-4 [font-family:'Cormorant_Garamond',serif] text-5xl sm:text-6xl"
+              >
+                Everything, <span class="italic text-white/50">Handled.</span>
+              </h2>
+            </div>
+            <div class="mt-16 grid grid-cols-2 gap-4 lg:grid-cols-4">
+              <div
+                class="rounded-3xl border border-white/10 bg-white/[0.045] p-7 transition hover:-translate-y-2"
+              >
+                <div class="text-4xl">✦</div>
+                <h3
+                  class="mt-6 [font-family:'Cormorant_Garamond',serif] text-2xl"
+                >
+                  Planning
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-white/40">
+                  Complete event planning from concept to execution.
+                </p>
+              </div>
+              <div
+                class="rounded-3xl border border-white/10 bg-white/[0.045] p-7 transition hover:-translate-y-2"
+              >
+                <div class="text-4xl">◈</div>
+                <h3
+                  class="mt-6 [font-family:'Cormorant_Garamond',serif] text-2xl"
+                >
+                  Decor
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-white/40">
+                  Bespoke styling, floral installations and luxury decor.
+                </p>
+              </div>
+              <div
+                class="rounded-3xl border border-white/10 bg-white/[0.045] p-7 transition hover:-translate-y-2"
+              >
+                <div class="text-4xl">◇</div>
+                <h3
+                  class="mt-6 [font-family:'Cormorant_Garamond',serif] text-2xl"
+                >
+                  Catering
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-white/40">
+                  Curated menus and exceptional dining experiences.
+                </p>
+              </div>
+              <div
+                class="rounded-3xl border border-white/10 bg-white/[0.045] p-7 transition hover:-translate-y-2"
+              >
+                <div class="text-4xl">✧</div>
+                <h3
+                  class="mt-6 [font-family:'Cormorant_Garamond',serif] text-2xl"
+                >
+                  Entertainment
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-white/40">
+                  Music, artists and entertainment tailored to your event.
+                </p>
+              </div>
+              <div
+                class="rounded-3xl border border-white/10 bg-white/[0.045] p-7 transition hover:-translate-y-2"
+              >
+                <div class="text-4xl">◎</div>
+                <h3
+                  class="mt-6 [font-family:'Cormorant_Garamond',serif] text-2xl"
+                >
+                  Photography
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-white/40">
+                  Capture every meaningful moment beautifully.
+                </p>
+              </div>
+              <div
+                class="rounded-3xl border border-white/10 bg-white/[0.045] p-7 transition hover:-translate-y-2"
+              >
+                <div class="text-4xl">∞</div>
+                <h3
+                  class="mt-6 [font-family:'Cormorant_Garamond',serif] text-2xl"
+                >
+                  Guest Management
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-white/40">
+                  Seamless guest experience from arrival to farewell.
+                </p>
+              </div>
+              <div
+                class="rounded-3xl border border-white/10 bg-white/[0.045] p-7 transition hover:-translate-y-2"
+              >
+                <div class="text-4xl">◌</div>
+                <h3
+                  class="mt-6 [font-family:'Cormorant_Garamond',serif] text-2xl"
+                >
+                  Venue
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-white/40">
+                  Discover beautiful venues that fit your vision.
+                </p>
+              </div>
+              <div
+                class="rounded-3xl border border-white/10 bg-white/[0.045] p-7 transition hover:-translate-y-2"
+              >
+                <div class="text-4xl">♢</div>
+                <h3
+                  class="mt-6 [font-family:'Cormorant_Garamond',serif] text-2xl"
+                >
+                  Coordination
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-white/40">
+                  Professional event-day coordination without the stress.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-[#0b0b0b] py-28">
+          <div class="mx-auto max-w-7xl px-6">
+            <div class="grid items-center gap-10 lg:grid-cols-2">
+              <div class="overflow-hidden rounded-[35px]">
+                <img
+                  src="./assets/8.avif"
+                  alt="Luxury wedding venue"
+                  class="h-[600px] w-full object-cover transition duration-700 hover:scale-105"
+                />
+              </div>
+              <div class="lg:pl-10">
+                <p class="text-xs tracking-[0.35em] text-[#cdb070]">
+                  FEATURED EXPERIENCE
+                </p>
+                <h2
+                  class="mt-5 [font-family:'Cormorant_Garamond',serif] text-6xl"
+                >
+                  Royal Garden
+                  <span
+                    class="bg-gradient-to-r from-[#f6e6bd] via-[#c8a96b] to-[#f7e7bf] bg-clip-text italic text-transparent"
+                    >Wedding.</span
+                  >
+                </h2>
+                <p class="mt-7 max-w-lg leading-8 text-white/45">
+                  An intimate luxury wedding inspired by royal Indian
+                  architecture, warm candlelight, floral installations and
+                  timeless elegance.
+                </p>
+                <div class="mt-10 grid max-w-md grid-cols-2 gap-5">
+                  <div>
+                    <p class="text-xs text-white/30">LOCATION</p>
+                    <p class="mt-2">Jaipur, India</p>
+                  </div>
+                  <div>
+                    <p class="text-xs text-white/30">GUESTS</p>
+                    <p class="mt-2">250 Guests</p>
+                  </div>
+                </div>
+                <a
+                  href="#contact"
+                  class="mt-10 inline-block rounded-full border border-white/15 px-7 py-3 transition hover:bg-white hover:text-black"
+                  >View Experience →</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-28">
+          <div class="mx-auto max-w-7xl px-6">
+            <div class="max-w-xl">
+              <p class="text-xs tracking-[0.35em] text-[#cdb070]">
+                THE PROCESS
+              </p>
+              <h2
+                class="mt-4 [font-family:'Cormorant_Garamond',serif] text-5xl sm:text-6xl"
+              >
+                From Vision<br /><span class="italic text-white/45"
+                  >to Reality.</span
+                >
+              </h2>
+            </div>
+            <div class="mt-16 grid gap-6 md:grid-cols-4">
+              <div class="border-t border-white/10 pt-7">
+                <span class="text-sm text-[#cdb070]">01</span>
+                <h3
+                  class="mt-4 [font-family:'Cormorant_Garamond',serif] text-3xl"
+                >
+                  Discover
+                </h3>
+                <p class="mt-4 text-sm leading-6 text-white/40">
+                  We understand your vision, personality, requirements and
+                  expectations.
+                </p>
+              </div>
+              <div class="border-t border-white/10 pt-7">
+                <span class="text-sm text-[#cdb070]">02</span>
+                <h3
+                  class="mt-4 [font-family:'Cormorant_Garamond',serif] text-3xl"
+                >
+                  Design
+                </h3>
+                <p class="mt-4 text-sm leading-6 text-white/40">
+                  We transform your ideas into a beautiful event concept and
+                  visual direction.
+                </p>
+              </div>
+              <div class="border-t border-white/10 pt-7">
+                <span class="text-sm text-[#cdb070]">03</span>
+                <h3
+                  class="mt-4 [font-family:'Cormorant_Garamond',serif] text-3xl"
+                >
+                  Plan
+                </h3>
+                <p class="mt-4 text-sm leading-6 text-white/40">
+                  Vendors, timelines, logistics and every small detail are
+                  carefully coordinated.
+                </p>
+              </div>
+              <div class="border-t border-white/10 pt-7">
+                <span class="text-sm text-[#cdb070]">04</span>
+                <h3
+                  class="mt-4 [font-family:'Cormorant_Garamond',serif] text-3xl"
+                >
+                  Celebrate
+                </h3>
+                <p class="mt-4 text-sm leading-6 text-white/40">
+                  You enjoy your event while our team takes care of everything
+                  behind the scenes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="packages" class="bg-[#0b0b0b] py-28">
+          <div class="mx-auto max-w-7xl px-6">
+            <div class="text-center">
+              <p class="text-xs tracking-[0.35em] text-[#cdb070]">PACKAGES</p>
+              <h2
+                class="mt-4 [font-family:'Cormorant_Garamond',serif] text-5xl sm:text-6xl"
+              >
+                Choose Your
+                <span class="italic text-white/50">Experience.</span>
+              </h2>
+            </div>
+            <div class="mt-16 grid gap-6 lg:grid-cols-3">
+              <article
+                class="rounded-3xl border border-white/10 bg-white/[0.045] p-8 transition hover:-translate-y-2"
+              >
+                <p class="text-xs tracking-widest text-white/40">ESSENTIAL</p>
+                <h3
+                  class="mt-5 [font-family:'Cormorant_Garamond',serif] text-4xl"
+                >
+                  ₹25,000+
+                </h3>
+                <p class="mt-3 text-sm text-white/40">
+                  For intimate celebrations.
+                </p>
+                <div class="my-8 h-px bg-white/10"></div>
+                <div class="space-y-4 text-sm text-white/65">
+                  <p>✓ Event consultation</p>
+                  <p>✓ Basic planning</p>
+                  <p>✓ Vendor coordination</p>
+                  <p>✓ Basic decoration</p>
+                </div>
+                <a
+                  href="#contact"
+                  class="mt-9 block rounded-full border border-white/10 py-3 text-center transition hover:bg-white hover:text-black"
+                  >Choose Package</a
+                >
+              </article>
+              <article
+                class="relative overflow-hidden rounded-3xl bg-[#e5d0a0] p-8 text-black transition hover:-translate-y-2"
+              >
+                <span
+                  class="absolute right-5 top-5 text-[10px] uppercase tracking-widest"
+                  >Popular</span
+                >
+                <p class="text-xs tracking-widest opacity-60">PREMIUM</p>
+                <h3
+                  class="mt-5 [font-family:'Cormorant_Garamond',serif] text-4xl"
+                >
+                  ₹75,000+
+                </h3>
+                <p class="mt-3 text-sm opacity-60">
+                  For weddings and larger events.
+                </p>
+                <div class="my-8 h-px bg-black/10"></div>
+                <div class="space-y-4 text-sm">
+                  <p>✓ Complete event planning</p>
+                  <p>✓ Premium decoration</p>
+                  <p>✓ Vendor management</p>
+                  <p>✓ Photography coordination</p>
+                  <p>✓ Guest management</p>
+                </div>
+                <a
+                  href="#contact"
+                  class="mt-9 block rounded-full bg-black py-3 text-center text-white transition hover:bg-black/80"
+                  >Choose Package</a
+                >
+              </article>
+              <article
+                class="rounded-3xl border border-white/10 bg-white/[0.045] p-8 transition hover:-translate-y-2"
+              >
+                <p class="text-xs tracking-widest text-white/40">LUXURY</p>
+                <h3
+                  class="mt-5 [font-family:'Cormorant_Garamond',serif] text-4xl"
+                >
+                  ₹1,50,000+
+                </h3>
+                <p class="mt-3 text-sm text-white/40">
+                  For extraordinary experiences.
+                </p>
+                <div class="my-8 h-px bg-white/10"></div>
+                <div class="space-y-4 text-sm text-white/65">
+                  <p>✓ Full-service planning</p>
+                  <p>✓ Luxury styling</p>
+                  <p>✓ Premium vendors</p>
+                  <p>✓ Entertainment management</p>
+                  <p>✓ Dedicated event manager</p>
+                </div>
+                <a
+                  href="#contact"
+                  class="mt-9 block rounded-full border border-white/10 py-3 text-center transition hover:bg-white hover:text-black"
+                  >Choose Package</a
+                >
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="py-28">
+          <div class="mx-auto max-w-7xl px-6">
+            <div class="grid items-center gap-14 lg:grid-cols-2">
+              <div>
+                <p class="text-xs tracking-[0.35em] text-[#cdb070]">
+                  ABOUT EVENTORA
+                </p>
+                <h2
+                  class="mt-5 [font-family:'Cormorant_Garamond',serif] text-6xl leading-[.9]"
+                >
+                  We don't just plan<br /><span
+                    class="bg-gradient-to-r from-[#f6e6bd] via-[#c8a96b] to-[#f7e7bf] bg-clip-text italic text-transparent"
+                    >events.</span
+                  >
+                </h2>
+                <p class="mt-8 max-w-lg leading-8 text-white/45">
+                  We create memories. Every celebration is designed around the
+                  people, emotions and stories that make it meaningful.
+                </p>
+                <div class="mt-10 grid grid-cols-2 gap-8">
+                  <div>
+                    <p
+                      class="[font-family:'Cormorant_Garamond',serif] text-4xl"
+                    >
+                      10+
+                    </p>
+                    <p class="mt-2 text-xs text-white/40">Years Experience</p>
+                  </div>
+                  <div>
+                    <p
+                      class="[font-family:'Cormorant_Garamond',serif] text-4xl"
+                    >
+                      500+
+                    </p>
+                    <p class="mt-2 text-xs text-white/40">Events Created</p>
+                  </div>
+                  <div>
+                    <p
+                      class="[font-family:'Cormorant_Garamond',serif] text-4xl"
+                    >
+                      150+
+                    </p>
+                    <p class="mt-2 text-xs text-white/40">Weddings</p>
+                  </div>
+                  <div>
+                    <p
+                      class="[font-family:'Cormorant_Garamond',serif] text-4xl"
+                    >
+                      98%
+                    </p>
+                    <p class="mt-2 text-xs text-white/40">Happy Clients</p>
+                  </div>
+                </div>
+              </div>
+              <div class="relative">
+                <img
+                  src="./assets/9.avif"
+                  alt="Luxury wedding"
+                  class="h-[600px] w-full rounded-[40px] object-cover"
+                />
+                <div
+                  class="absolute -bottom-7 -left-5 rounded-2xl border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl"
+                >
+                  <p class="[font-family:'Cormorant_Garamond',serif] text-3xl">
+                    Beautifully<br />planned.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-[#0b0b0b] py-28">
+          <div class="mx-auto max-w-4xl px-6 text-center">
+            <p class="text-xs tracking-[0.35em] text-[#cdb070]">KIND WORDS</p>
+            <div class="mt-8 text-3xl text-[#d4b875]">★★★★★</div>
+            <blockquote
+              class="mt-8 [font-family:'Cormorant_Garamond',serif] text-4xl leading-tight sm:text-5xl"
+            >
+              “They didn't just organize our wedding. They understood exactly
+              how we wanted the day to feel.”
+            </blockquote>
+            <div class="mt-8">
+              <p class="font-medium">Ananya &amp; Rahul</p>
+              <p class="mt-1 text-sm text-white/40">
+                Royal Garden Wedding · Jaipur
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="py-28">
+          <div class="mx-auto max-w-7xl px-6">
+            <div class="grid gap-16 lg:grid-cols-2">
+              <div>
+                <p class="text-xs tracking-[0.35em] text-[#cdb070]">
+                  LET'S CREATE
+                </p>
+                <h2
+                  class="mt-5 [font-family:'Cormorant_Garamond',serif] text-6xl leading-[.9]"
+                >
+                  Let's plan<br />something<br /><span
+                    class="bg-gradient-to-r from-[#f6e6bd] via-[#c8a96b] to-[#f7e7bf] bg-clip-text italic text-transparent"
+                    >beautiful.</span
+                  >
+                </h2>
+                <p class="mt-8 max-w-md leading-8 text-white/45">
+                  Tell us about your celebration and let's turn your vision into
+                  an unforgettable experience.
+                </p>
+                <div class="mt-10 space-y-4 text-sm text-white/60">
+                  <p>hello@xashevents.com</p>
+                  <p>+91 98765 43210</p>
+                  <p>Jaipur, Rajasthan, India</p>
+                </div>
+              </div>
+              <form
+                class="rounded-[30px] border border-white/10 bg-white/[0.045] p-7 backdrop-blur-xl sm:p-10"
+              >
+                <div class="grid gap-5 sm:grid-cols-2">
+                  <label class="text-xs text-white/40"
+                    >FULL NAME<input
+                      type="text"
+                      placeholder="Your name"
+                      class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-[#cdb070]" /></label
+                  ><label class="text-xs text-white/40"
+                    >EMAIL<input
+                      type="email"
+                      placeholder="you@example.com"
+                      class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-[#cdb070]"
+                  /></label>
+                </div>
+                <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                  <label class="text-xs text-white/40"
+                    >PHONE<input
+                      type="tel"
+                      placeholder="+91"
+                      class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-[#cdb070]" /></label
+                  ><label class="text-xs text-white/40"
+                    >EVENT TYPE<select
+                      class="mt-2 w-full rounded-xl border border-white/10 bg-[#151515] px-4 py-3 text-sm text-white outline-none"
+                    >
+                      <option>Wedding</option>
+                      <option>Engagement</option>
+                      <option>Birthday</option>
+                      <option>Corporate</option>
+                      <option>Private Event</option>
+                    </select></label
+                  >
+                </div>
+                <label class="mt-5 block text-xs text-white/40"
+                  >EVENT DATE<input
+                    type="date"
+                    class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none" /></label
+                ><label class="mt-5 block text-xs text-white/40"
+                  >MESSAGE<textarea
+                    rows="5"
+                    placeholder="Tell us about your event..."
+                    class="mt-2 w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-[#cdb070]"
+                  ></textarea></label
+                ><button
+                  type="button"
+                  class="mt-6 w-full rounded-xl bg-[#e5d0a0] py-4 font-semibold text-black transition hover:bg-white"
+                >
+                  Request a Consultation →
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="border-t border-white/10">
+        <div class="mx-auto max-w-7xl px-6 py-12">
+          <div class="flex flex-col justify-between gap-10 md:flex-row">
+            <div>
+              <div class="text-xl font-semibold tracking-[0.25em]">
+                XASHEV<span
+                  class="bg-gradient-to-r from-[#f6e6bd] via-[#c8a96b] to-[#f7e7bf] bg-clip-text text-transparent"
+                  >ENTS</span
+                >
+              </div>
+              <p class="mt-4 max-w-xs text-sm leading-6 text-white/40">
+                Creating extraordinary events, beautiful memories and
+                unforgettable experiences.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-7 text-sm text-white/50">
+              <a href="#home" class="hover:text-white">Home</a
+              ><a href="#events" class="hover:text-white">Events</a
+              ><a href="#services" class="hover:text-white">Services</a
+              ><a href="#packages" class="hover:text-white">Packages</a
+              ><a href="#about" class="hover:text-white">About</a
+              ><a href="#contact" class="hover:text-white">Contact</a>
+            </div>
+          </div>
+          <div
+            class="mt-10 flex flex-col justify-between gap-4 border-t border-white/10 pt-7 text-xs text-white/30 sm:flex-row"
+          >
+            <p>© 2026 Eventora. All Rights Reserved.</p>
+            <p>Jaipur · Delhi · Mumbai · Worldwide</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
