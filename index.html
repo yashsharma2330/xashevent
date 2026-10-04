@@ -103,6 +103,16 @@
       #theme-toggle:checked ~ .site-shell .event-1 {
         color: white;
       }
+
+
+      #theme-toggle:checked ~ .site-shell .home-1:hover,
+      #theme-toggle:checked ~ .site-shell .events-1:hover,
+      #theme-toggle:checked ~ .site-shell .services-1:hover,
+      #theme-toggle:checked ~ .site-shell .packages-1:hover,
+      #theme-toggle:checked ~ .site-shell .about-1:hover,
+      #theme-toggle:checked ~ .site-shell .contact-:hover {
+        color: #24231f;
+      }
     </style>
   </head>
   <body
@@ -129,19 +139,19 @@
             <div
               class="hidden items-center gap-8 text-sm text-white/70 md:flex"
             >
-              <a href="#home" class="transition hover:text-[#e7d3a5]">Home</a>
-              <a href="#events" class="transition hover:text-[#e7d3a5]">Events</a>
-              <a href="#services" class="transition hover:text-[#e7d3a5]"
+              <a href="#home" class="home-1 transition hover:text-[#e7d3a5]">Home</a>
+              <a href="#events" class="events-1 transition hover:text-[#e7d3a5]">Events</a>
+              <a href="#services" class="services-1 transition hover:text-[#e7d3a5]"
                 >Services</a
               >
-              <a href="#packages" class="transition hover:text-[#e7d3a5]"
+              <a href="#packages" class="packages-1 transition hover:text-[#e7d3a5]"
                 >Packages</a
               >
-              <a href="#about" class="transition hover:text-[#e7d3a5]">About</a>
+              <a href="#about" class="about-1 transition hover:text-[#e7d3a5]">About</a>
             </div>
             <a
               href="#contact"
-              class="hidden rounded-full bg-[#e7d3a5] px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-white sm:inline-flex"
+              class="contact-1 hidden rounded-full bg-[#e7d3a5] px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-white sm:inline-flex"
               >Plan Your Event</a
             >
             <label
@@ -155,7 +165,7 @@
             <a
               href="#contact"
               aria-label="Contact XASHEVENT"
-              class="text-xl md:hidden"
+              class="contact-1 text-xl md:hidden"
               >☰</a
             >
           </div>
@@ -972,12 +982,12 @@
               </p>
             </div>
             <div class="flex flex-wrap gap-7 text-sm text-white/50">
-              <a href="#home" class="hover:text-white">Home</a
-              ><a href="#events" class="hover:text-white">Events</a
-              ><a href="#services" class="hover:text-white">Services</a
-              ><a href="#packages" class="hover:text-white">Packages</a
-              ><a href="#about" class="hover:text-white">About</a
-              ><a href="#contact" class="hover:text-white">Contact</a>
+              <a href="#home" class="home-1   hover:text-[#e7d3a5]">Home</a
+              ><a href="#events" class="events-1 hover:text-[#e7d3a5]">Events</a
+              ><a href="#services" class="services-1 hover:text-[#e7d3a5]">Services</a
+              ><a href="#packages" class="packages-1 hover:text-[#e7d3a5]">Packages</a
+              ><a href="#about" class="about-1 hover:text-[#e7d3a5]">About</a
+              ><a href="#contact" class="contact-1 hover:text-[#e7d3a5]">Contact</a>
             </div>
           </div>
           <div
