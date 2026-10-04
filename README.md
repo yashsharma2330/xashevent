@@ -219,7 +219,6 @@ XASHEVENT/
 **Live Website:**  
 `https://your-live-link-here.com`
 
-Replace the URL above with your actual deployed website link.
 
 ## 📱 Responsive Design
 
