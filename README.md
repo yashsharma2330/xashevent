@@ -43,7 +43,15 @@ Premium hero section introducing the event-planning brand with:
 - Hero image
 - Featured event card
 
-### 2. Events
+
+### 2 About
+Brand introduction with:
+- Experience statistics
+- Events created
+- Weddings
+- Happy clients
+
+### 3 Events
 Showcases different types of events:
 
 - Weddings
@@ -53,7 +61,7 @@ Showcases different types of events:
 - Private Parties
 - Anniversaries
 
-### 3. Services
+### 4 Services
 The website presents eight core services:
 
 - Planning
@@ -65,14 +73,14 @@ The website presents eight core services:
 - Venue
 - Coordination
 
-### 4. Featured Experience
+### 5 Featured Experience
 A highlighted **Royal Garden Wedding** experience featuring:
 - Jaipur location
 - 250 guests
 - Luxury wedding description
 - Large visual section
 
-### 5. Process
+### 6 Process
 The event planning workflow is presented in four steps:
 
 1. Discover
@@ -80,7 +88,7 @@ The event planning workflow is presented in four steps:
 3. Plan
 4. Celebrate
 
-### 6. Packages
+### 7 Packages
 Three pricing packages are displayed:
 
 | Package | Starting Price | Best For |
@@ -89,17 +97,13 @@ Three pricing packages are displayed:
 | Premium | ₹75,000+ | Weddings and larger events |
 | Luxury | ₹1,50,000+ | Extraordinary experiences |
 
-### 7. About
-Brand introduction with:
-- Experience statistics
-- Events created
-- Weddings
-- Happy clients
+### 8 FAQ
+A Frequently Asked Questions section that helps visitors quickly find answers about the event-planning services, packages, planning process, and common event-related queries.
 
-### 8. Testimonial
+### 9 Testimonial
 A customer testimonial section highlighting the Royal Garden Wedding experience in Jaipur.
 
-### 9. Contact
+### 10 Contact
 Consultation form containing:
 
 - Full Name
@@ -110,7 +114,7 @@ Consultation form containing:
 - Message
 - Consultation CTA
 
-### 10. Footer
+### 11 Footer
 Includes navigation links, brand description, copyright information and service locations.
 
 ---
@@ -193,6 +197,10 @@ XASHEVENT/
 
 ![XASHEVENT Home](./screenshots/hero.png)
 
+#### 👑 About Section
+
+![About Section](./screenshots/About.png)
+
 #### 🎉 Events Section
 
 ![Events Section](./screenshots/Event.png)
@@ -205,9 +213,9 @@ XASHEVENT/
 
 ![Packages Section](./screenshots/Package.png)
 
-#### 👑 About Section
+#### FAQ Section 
 
-![About Section](./screenshots/About.png)
+![FAQ Section](./screenshots/FAQ.png)
 
 #### 📩 Contact Section
 
